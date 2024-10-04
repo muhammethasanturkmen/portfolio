@@ -1,42 +1,572 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
   box-sizing: border-box;
-  padding: 0;
+}
+
+/*
+  2. Remove default margin
+*/
+* {
   margin: 0;
 }
 
-a {
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: "PP Mori", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/*
+  5. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+  6. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+
+/*
+  7. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/*
+  8. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+:root {
+  --bg-color: #efefef;
+  --text-color: #111414;
+}
+
+.dark {
+  --bg-color: #111414;
+  --text-color: #efefef;
+}
+
+
+
+label {
+  display: inline-flex;
+  cursor: pointer;
+  margin-left: auto;
+  align-items: center;
+}
+
+.icon {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  font-size: 1.2em;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  padding: 25px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+header p {
+  font-size: 1.0626em;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.link {
+  display: flex;
+  gap: 30px;
+}
+
+.link a {
+  text-decoration: none;
   color: inherit;
+  font-size: 17px;
+}
+
+.hero {
+  padding-top: 15em;
+  padding-bottom: 7.5em;
+}
+
+.hero-top {
+  display: grid;
+  align-items: flex-end;
+  grid-template-columns: 8fr 4fr;
+  grid-column-gap: 1.25em;
+}
+
+.hero-title h1 {
+  line-height: .9;
+  font-size: 220px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.hero-botton {
+  font-size: 2em;
+  line-height: 1.4;
+  margin-top: 5em;
+  margin-bottom: 1em;
+  display: grid;
+  grid-template-columns: 10fr 2fr;
+  grid-column-gap: 1.25em;
+}
+
+.hero-social li:nth-of-type(1) {
+  padding-bottom: .5em;
+  border-bottom: 1px solid rgba(17, 20, 20, .1);
+  margin-bottom: 1em;
+  opacity: .5
+}
+
+
+.hero-social li span {
+  font-size: .875em;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.hero-social li {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.services-header {
+  padding-bottom: 3.75em;
+}
+
+.services-header h2 {
+  font-size: 3.58em;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  font-weight: 400;
+}
+
+.services-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 1.25em;
+}
+
+.services-item {
+  padding-left: 2em;
+  position: relative;
+}
+
+.services-item::before {
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  background-color: rgba(17, 20, 20, .1);
+  top: 0;
+  content: "";
+  left: 0;
+  bottom: 0;
+}
+
+
+.services-item span {
+  display: block;
+  margin-bottom: 80px;
+  opacity: .1;
+  font-size: 3.58em;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+}
+
+.services-item h2 {
+  margin-bottom: .5em;
+  line-height: 1;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.services-item p {
+  max-width: 17em;
+  font-size: 1.0626em;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.works {
+  padding: 6.25em 0;
+}
+
+.ciz:first-child {
+  border-top: 1px solid rgba(17, 20, 20, .1);
+}
+
+.ciz {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 3em 0;
+  border-bottom: 1px solid rgba(17, 20, 20, .1);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+
+.works-header {
+  padding-bottom: 1.25em;
+}
+
+.works-header h3 {
+  font-size: 2.39em;
+  line-height: 1;
+  letter-spacing: -.01em;
+  font-weight: 400;
+}
+
+.works-title {
+  color: inherit;
+  font-size: 5.37em;
+  line-height: 1;
+  letter-spacing: -.03em;
+  font-weight: 400;
+}
+
+.year {
+  font-size: 3.58em;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+}
+
+.works-footer {
+  padding-top: 3em;
+}
+
+.works-footer h3 {
+  margin-bottom: 12px;
+  font-size: 2.39em;
+  line-height: 1;
+  letter-spacing: -.01em;
+  font-weight: 400;
+}
+
+.works-footer p {
+  display: flex;
+  gap: 7px;
+  font-size: 1.0626em;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.works-footer a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 1.0626em;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.footer {
+  width: 100%;
+}
+
+.footer h3 {
+  font-size: 5.37em;
+  line-height: 1;
+  letter-spacing: -.03em;
+  font-weight: 400;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: .25em .25em .25em 1.25em;
+  background-color: #111414;
+  color: #efefef;
+  column-gap: 1em;
+  border-radius: 100px;
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+.btn-icon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+}
+
+.btn-nokta {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform: scale(.2);
+  background-color: #efefef;
+  transition: transform .2s cubic-bezier(.5,.7,.4,1);
+}
+
+.btn-icon svg {
+  width: 1.5em;
+  height: 1.5em;
+  opacity: 0;
+  mix-blend-mode: difference;
+  transition: transform .2s cubic-bezier(.5,.7,.4,1);
+  backface-visibility: hidden;
+}
+
+a.btn:hover .btn-nokta, 
+a.btn:focus .btn-nokta {
+  transform: scale(1);
+}
+
+a.btn:hover svg, 
+a.btn:focus svg {
+  opacity: 1;
+  transform: translateX(0.25em);
+}
+
+.footer-content {
+  position: relative;
+  max-width: 56.25em;
+  width: 100%;
+}
+
+.footer-end {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .hero-title h1 {
+    font-size: 150px;
+  }
+
+  .services-header h2 {
+    font-size: 2.5em;
+  }
+
+  .services-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-bottom {
+    grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 768px) {
+  .hero-title h1 {
+    font-size: 100px;
+    margin-bottom: 1em;
+  }
+
+  .services-header h2 {
+    font-size: 2em;
+  }
+
+  .services-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 1.25em;
+  }
+
+  .hero-social {
+    display: none; 
+  }
+
+  .hero-top {
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start;
+  }
+
+  .hero-bottom {
+    font-size: 1.5em;
+  }
+
+  .hero-social {
+    display: none;
+  }
+
+  .hero-sub {
+    display: none;
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: 5fr 6fr 1fr;
+    grid-column-gap: 1.5em;
+  }
+
+  header p {
+    font-size: 1em;
+  }
+
+  .works-footer {
+    display: none;
+  }
+
+  .link {
+    display: flex; /* Keep link items in a row */
+    gap: 30px; /* Maintain space between links */
+    margin-right: auto; /* Push link section to the left */
+  }
+
+  .footer-end {
+    flex-direction: column; /* Stack footer-end vertically */
+    align-items: flex-start; /* Align to the left */
+  }
+
+  .footer-content h3 {
+    margin-bottom: .3em;
+  }
+}
+
+@media (max-width: 375px) {
+
+  .hero {
+    padding-top: 7em;
+    padding-bottom: 2em;
+  }
+
+  .hero-title h1 {
+    font-size: 60px; /* H1 için boyut ayarı */
+  }
+
+  .hero-bottom {
+    font-size: 1.2em;
+  }
+
+  .btn {
+    padding: .25em .5em;
+    font-size: 14px;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between; /* Bağlantılar ve dark mode toggle arasında boşluk */
+    align-items: center; /* Dikey olarak ortala */
+  }
+
+  header p {
+    display: none; /* İsim gizlensin */
+  }
+
+  .hero-social {
+    display: none;
+  }
+
+  .hero-sub {
+    display: none;
+  }
+  
+  .hero-sub p {
+    font-size: 1.2em; /* Yazı boyutu ayarı */
+    line-height: 1.5; /* Satır yüksekliği */
+    margin: 0; /* Varsayılan marjları kaldır */
+    padding: 0; /* Varsayılan padding'i kaldır */
+    color: var(--text-color); /* Metin rengini ayarla */
+  }
+
+  .hero-botton p {
+    font-size: 20px;
+  }
+
+  .works-footer {
+    display: none;
+  }
+  
+
+  .link {
+    flex-direction: column; /* Bağlantıları dikey yerleştir */
+    align-items: flex-start; /* Sol tarafa hizala */
+  }
+
+  .works-title {
+    font-size: 3.58em;
+    line-height: 1.1;
+    letter-spacing: -.02em;
+  }
+
+  .year {
+    font-size: 2em;
+    line-height: 1;
+    letter-spacing: -.01em;
+  }
+
+  .footer-end {
+    align-items: center; /* Footer'da içerikleri ortala */
+  }
+
+  .services-header h2 {
+    font-size: 1.5em; /* Hizmet başlığı için daha küçük boyut */
+  }
+
+  .services-list {
+    display: flex; /* Flex düzeni kullanarak alt alta sıralama */
+    flex-direction: column; /* Dikey yönde yerleştirme */
+    gap: 1em; /* Elemanlar arasında boşluk bırakma */
+  }
+
+  .services-item {
+    width: 100%; /* Elemanlar tam genişlikte olacak şekilde ayarlama */
+  }
+
+  .services-item h2 {
+    font-size: 1.2em; /* Hizmet öğesi başlığı için daha küçük boyut */
+  }
+
+  .services-item p {
+    font-size: 0.9em; /* Hizmet öğesi açıklaması için daha küçük boyut */
+  }
+
+  .link a {
+    font-size: 14px; /* Bağlantı boyutu küçültülecek */
+  }
+}
+
+/* Karanlık mod toggle her zaman sağda kalsın */
+.dark-mode-toggle {
+  margin-left: auto; /* Sağda yer alacak şekilde ayarlanacak */
+}
+
+
+
