@@ -133,7 +133,7 @@ export default function Home() {
         <div ref={contactRef} className="footer">
           <div className="footer-end">
             <div className="footer-content">
-              <h3> Let&apos;s talk about a project, collaboration or an idea you may have</h3>
+              <h3>{`Let's talk about a project, collaboration or an idea you may have`}</h3>
             </div>
             <a className="btn" href="mailto:muhammethasanturkmen@gmail.com">
               <span>Drop me a line</span>
